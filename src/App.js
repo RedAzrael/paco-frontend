@@ -21,7 +21,7 @@ const SearchApp = () => {
 
     try {
       // Replace with your actual backend endpoint
-      const response = await fetch(`http://localhost:3001/api/search?q=${encodeURIComponent(query)}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/search?q=${encodeURIComponent(query)}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ const SearchApp = () => {
     setQuery(''); // Clear search query when displaying all
 
     try {
-      const response = await fetch('http://localhost:3001/relics', {
+      const response = await fetch('${process.env.REACT_APP_API_URL}/relics', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
