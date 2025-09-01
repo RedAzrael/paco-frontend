@@ -320,6 +320,87 @@ body {
   line-height: 1.5;
 }
 
+/* Enhanced description formatting */
+.relic-name-line {
+  color: #f8fafc;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.section-header {
+  color: #e2e8f0;
+  margin: 8px 0 4px 0;
+  font-size: 1rem;
+}
+
+.item-line {
+  display: flex;
+  align-items: center;
+  margin: 2px 0;
+  padding: 2px 0;
+  transition: all 0.2s ease;
+}
+
+.item-line:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.bullet {
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.item-text {
+  flex: 1;
+}
+
+/* Rarity-based color coding */
+.common-item {
+  color: #94a3b8;
+}
+
+.common-item .bullet {
+  color: #64748b;
+}
+
+.uncommon-item {
+  color: #34d399;
+}
+
+.uncommon-item .bullet {
+  color: #10b981;
+}
+
+.rare-item {
+  color: #fbbf24;
+}
+
+.rare-item .bullet {
+  color: #f59e0b;
+}
+
+/* Add glow effects for rare items */
+.rare-item:hover {
+  background: rgba(251, 191, 36, 0.1);
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.2);
+}
+
+.uncommon-item:hover {
+  background: rgba(52, 211, 153, 0.1);
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.2);
+}
+
+.common-item:hover {
+  background: rgba(148, 163, 184, 0.1);
+}
+
+.description-line {
+  margin: 2px 0;
+  color: #cbd5e1;
+}
+
 .result-link {
   color: #ef4444;
   text-decoration: underline;

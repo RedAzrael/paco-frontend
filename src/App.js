@@ -186,7 +186,45 @@ const SearchApp = () => {
                           <h3 className="result-title">{result.title}</h3>
                         )}
                         {result.description && (
-                          <p className="result-description">{result.description}</p>
+                          <div className="result-description">
+                            {result.description.split('\n').map((line, lineIndex) => {
+                              if (line.startsWith('•')) {
+                                // Format item lines with bullet points
+                                const itemText = line.substring(1).trim(); // Remove bullet
+                                const isRare = itemText.includes('(Rare)');
+                                const isUncommon = itemText.includes('(Uncommon)');
+                                const isCommon = itemText.includes('(Common)');
+                                
+                                return (
+                                  <div key={lineIndex} className={`item-line ${isRare ? 'rare-item' : isUncommon ? 'uncommon-item' : isCommon ? 'common-item' : ''}`}>
+                                    <span className="bullet">•</span>
+                                    <span className="item-text">{itemText}</span>
+                                  </div>
+                                );
+                              } else if (line.startsWith('Relic:')) {
+                                // Format relic name lines
+                                return (
+                                  <div key={lineIndex} className="relic-name-line">
+                                    <strong>{line}</strong>
+                                  </div>
+                                );
+                              } else if (line === 'Items:' || line === 'Matched Items:') {
+                                // Format section headers
+                                return (
+                                  <div key={lineIndex} className="section-header">
+                                    <strong>{line}</strong>
+                                  </div>
+                                );
+                              } else {
+                                // Regular lines
+                                return (
+                                  <div key={lineIndex} className="description-line">
+                                    {line}
+                                  </div>
+                                );
+                              }
+                            })}
+                          </div>
                         )}
                         {result.url && (
                           <a 
